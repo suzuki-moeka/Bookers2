@@ -13,3 +13,7 @@
  *= require_tree .
  *= require_self
  */
+ 
+ .book_footer{
+   margin: 0 auto;
+ }
