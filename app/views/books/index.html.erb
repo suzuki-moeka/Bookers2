@@ -1,4 +1,7 @@
-    <div class="col-lg-8">
+ <%= render 'users/user', user: current_user %>
+ <%= render 'new', book: @book %>
+
+  <div class="col-lg-8">
    <table class="table table-striped">
     <% @books.each do |book| %>
     <div>
@@ -12,8 +15,6 @@
       <% end %>
       <p><%= book.body %></p>
       <p><%= book.user.name %></p>
-      <p><%= link_to "Edit", edit_book_path(book.id) %></p>
-      <p><%= link_to "Destroy", book_path(book.id), method: :delete, "data-confirm" => "本当に消しますか？?" %></p>
      </div>
     <% end %>
    </table>

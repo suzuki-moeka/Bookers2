@@ -1,13 +1,5 @@
-
- <div>
-  <% if @user.profile_image.attached? %>
-   <%= image_tag @user.profile_image(100,100) %>
-  <% else %>
-   <%= image_tag 'no_image', size: "100x100" %>
-  <% end %>
-   <p><%= @user.name %></p>
-   <p><%= link_to "プロフィール編集", edit_user_path(@user.id) %></p>
-</div>
+ <%= render 'user', user: @user %>
+ <%= render 'books/new', book: @book_new %>
 
  <% @books.each do |book| %>
   <div>
@@ -16,9 +8,10 @@
     <% else %>
      <%= image_tag 'no_image', size: "100x100" %>
     <% end %>
-   <p><%= book.title %></p>
+    <%= link_to book_path(book.id) do %>
+     <%= book.title %>
+    <% end %>
    <p><%= book.body %></p>
    <p><%= book.user.name %></p>
-   <p></p>
   </div>
 <% end %>
