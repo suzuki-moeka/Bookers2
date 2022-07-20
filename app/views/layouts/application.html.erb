@@ -9,7 +9,7 @@
   </head>
 
   <body>
-    <header class="shadow-sm">
+    <header class="bg-dark text-white pt-5 pb-4">
      <h1><%= link_to 'Bookers', root_path %></h1>
     <nav class="navbar navbar-expand-lg navbar-light">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,17 +49,14 @@
     </nav>
     </header>
     
-    <div class="text-success">
+    <div class="container">
      <%= flash[:notice] %>
-    </div>
-    <div class="text-danger">
-     <%= flash[:alret] %>
     </div>
 
    <%= yield %>
 
-  <footer>
-    <p class="book_footer">CopyRight Infratop.inc</p>
+  <footer class=".navbar-light pt-5 pb-4">
+    <p class="d-flex align-items-center justify-content-center">CopyRight Infratop.inc</p>
   </footer>
 
   </body>

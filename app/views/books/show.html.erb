@@ -2,17 +2,21 @@
  <%= render 'new', book: @book_new %>
 
   <% if @book.user.profile_image.attached? %>
-   <p><%= image_tag book.user.profile_image(100,100) %></p>
+   <p><%= image_tag @book.user.get_profile_image(100,100) %></p>
   <% else %>
    <%= image_tag 'no_image', size: "100x100" %>
   <% end %>
 
-  <p><%= @book.title %></p>
-  <p><%= @book.body %></p>
-  <p><%= @book.user.name %></p>
+  <%= link_to @book_path(book.id) do %>
+    <%= book.title %>
+  <% end %>
+  <%= @book.body %>
+  <%= link_to @book_user_path(user.id) do %>
+   <%= @book.user.name %>
+  <% end %>
 
   <% if @book.user == current_user %>
-    <%= link_to "Edit", edit_book_path(@book.id) %>
-    <%= link_to "destroy", book_path(@book), method: :delete, "data-confirm" => "本当に消しますか？" %>
+    <%= link_to "Edit", edit_book_path(@book.id), class="btn btn-success" %>
+    <%= link_to "destroy", book_path(@book), class="btn btn-danger", method: :delete, "data-confirm" => "本当に消しますか？" %>
   <% end %>
 

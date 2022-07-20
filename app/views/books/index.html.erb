@@ -1,12 +1,22 @@
+ <% if @book.errors.any? %>
+  <%= @book.errors.count %>errors prohibited this obj from being saved:
+  <ul>
+    <% @book.errors.full_messages.each do |message| %>
+      <li><%= message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
  <%= render 'users/user', user: current_user %>
  <%= render 'new', book: @book %>
-
+ 
   <div class="col-lg-8">
+   <div class="span10">
    <table class="table table-striped">
     <% @books.each do |book| %>
     <div>
       <% if book.user.profile_image.attached? %>
-       <p><%= image_tag book.user.profile_image(100,100) %></p>
+       <p><%= image_tag book.user.get_profile_image(100,100) %></p>
       <% else %>
        <%= image_tag 'no_image', size: "100x100" %>
       <% end %>
@@ -15,6 +25,7 @@
       <% end %>
       <p><%= book.body %></p>
       <p><%= book.user.name %></p>
-     </div>
     <% end %>
    </table>
+  </div>
+</div>
