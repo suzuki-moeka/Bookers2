@@ -1,17 +1,36 @@
- <%= render 'user', user: @user %>
- <%= render 'books/new', book: @book_new %>
+ <div class="container">
+  <div class="row">
+   <div class="col-md-3">
+     <%= render 'user', user: @user %>
+     <%= render 'books/new', book: @book_new %>
+   </div>
 
- <% @books.each do |book| %>
-  <div>
-    <% if book.user.profile_image.attached? %>
-     <p><%= image_tag book.user.get_profile_image(100,100) %></p>
-    <% else %>
-     <%= image_tag 'no_image', size: "100x100" %>
-    <% end %>
-    <%= link_to book_path(book.id) do %>
-     <%= book.title %>
-    <% end %>
-   <p><%= book.body %></p>
-   <p><%= book.user.name %></p>
-  </div>
-<% end %>
+ <div class="col-md-9 col-md-8.offset-md-1">
+  <h1>Books</h1>
+  <table class="table table-hover">
+   <thead>
+    <tr>
+     <th>Title</th>
+     <th>Opinion</th>
+    </tr>
+   </thead>
+    <tbody>
+    <% @books.each do |book| %>
+     <tr align="left">
+      <td>
+        <% if book.user.profile_image.attached? %>
+         <%= image_tag book.user.get_profile_image(100,100) %>
+        <% else %>
+         <%= image_tag 'no_image', size: "100x100" %>
+        <% end %>
+        <%= link_to book_path(book.id) do %>
+         <%= book.title %>
+        <% end %>
+        <%= book.body %>
+      </td>
+     </tr>
+     <% end %>
+    </tbody>
+   </table>
+ </div>
+</div>

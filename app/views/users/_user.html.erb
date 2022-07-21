@@ -1,12 +1,14 @@
-<div class="col-md-4">
   <h1>User info</h1>
-    <div class="border-bottom border-light border-width: 1px" >
+    <div class="border-bottom border-secondary border-width: 1px" >
      <%= image_tag user.get_profile_image(100, 100) %>
      </div>
-      <div class="border-bottom border-light border-width: 1px" >
+      <div class="border-bottom border-secondary border-width: 1px" >
        <p>name <%= user.name %></p>
      </div>
      <p>introduction <%= user.introduction	%></p>
-   <p><%= link_to "プロフィール編集", edit_user_path(user.id) %></p>
-</div>
+     
+     <%= link_to edit_user_path(user.id),class: "btn btn btn-secondary text-white", method: :get do %>
+      <i class="fas fa-user-cog"></i>
+     <% end %>
+
 

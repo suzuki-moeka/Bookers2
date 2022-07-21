@@ -1,10 +1,10 @@
-<div class="col-md-4">
   <h1>New book</h1>
    <%= form_with model: book  do |f| %>
      <p>Title</p>
       <%= f.text_field :title %>
      <h6>Opinion</h6>
       <%= f.text_area :body %>
-    <button type="submit" class="btn btn-success">Create Book</button>
+      <p>
+       <button type="submit" class="btn btn-success">Create Book</button>
+      </p>
   <% end %>
- </div>
